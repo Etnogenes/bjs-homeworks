@@ -1,47 +1,48 @@
+"use strict";
+
 function getResult(a,b,c){
-    "use strict";
-    let one = a;
-    let two = b;
-    let three = c;
-    let D = two ** 2 - 4 * one * three;
-    let firstX = (-two + D ** (1 / 2)) / 2 * one;
-    let secondX = (-two - D ** (1 / 2)) / 2 * one;
+
+    let D = b ** 2 - 4 * a * c;
+    let firstX = (-b + Math.sqrt(D)) / 2 * a;
+    let secondX = (-b - Math.sqrt(D)) / 2 * a;
 	let arrayX = [firstX, secondX];
 
    	if (D < 0) {
-   	 arrayX = "Уравнение имеет только мнимые корни";
- 	} else if (one == 0 && two == 0 && three == 0) {
-	  arrayX = "{-∞ ; +∞}";
+   	 arrayX.splice(0, 2, "Уравнение имеет только мнимые корни");
+ 	} else if (a == 0 && b == 0 && c == 0) {
+	  arrayX.splice(0, 2, "{-∞ ; +∞}");
 	} else if (D == 0) {
-       arrayX = (-two) / 2 * one;	 
+       arrayX.splice(0, 2, ((-b) / 2 * a));	 
 	} else {
 	    return arrayX;
 	}
+
 return arrayX;
 }
 
 function getAverageMark(marks){
-	"use strict";
-
-    let appraisals = marks;
-    let arrayMarks = [appraisals];
-	let result = (arrayMarks[0] + arrayMarks[1] + arrayMarks[2] + arrayMarks[3] + arrayMarks[4]) / 5;
+   
+    let arrayMarks = [marks];
+	let result = 0;
 
 	if (arrayMarks.length == 0) {
-		result = "0";
+		return result;
 	} else if (arrayMarks.length > 5) {
 		 let arrayMarksTwo = arrayMarks.slice(0, 5);
-		 console.log(marks);
-		 return result;
-	} else {
-		  return result;
+		 for (let i = 0; i < 5; i++) {
+		  result += arrayMarksTwo[i] / 5;
+		}
+	} else (arrayMarks.length < 5) {
+		  for (let i = 0; i < arrayMarks.length; i++) {
+		    result += arrayMarks[i] / arrayMarks.length;
+		}
 	}
 
 return result;
 }
 
 function askDrink(name,dateOfBirthday){
-	"use strict";
+	
 
     // код для задачи №3 писать здесь
     // return result;
