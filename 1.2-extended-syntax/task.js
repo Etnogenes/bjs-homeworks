@@ -3,38 +3,33 @@
 function getResult(a,b,c){
 
     let D = b ** 2 - 4 * a * c;
-    let firstX = (-b + Math.sqrt(D)) / 2 * a;
-    let secondX = (-b - Math.sqrt(D)) / 2 * a;
-	let arrayX = [firstX, secondX];
 
    	if (D < 0) {
-   	 arrayX.splice(0, 2, "Уравнение имеет только мнимые корни");
- 	} else if (a == 0 && b == 0 && c == 0) {
-	  arrayX.splice(0, 2, "{-∞ ; +∞}");
+   	 arrayX = [];
 	} else if (D == 0) {
-       arrayX.splice(0, 2, ((-b) / 2 * a));	 
+       arrayX = [(-b) / 2 * a];	 
 	} else {
 	    return arrayX;
 	}
+
+    let firstX = (-b + Math.sqrt(D)) / 2 * a;
+    let secondX = (-b - Math.sqrt(D)) / 2 * a;
+	let arrayX = [firstX, secondX];
 
 return arrayX;
 }
 
 function getAverageMark(marks){
    
-    let arrayMarks = [marks];
-	let result = 0;
+    	let result = 0;
 
-	if (arrayMarks.length == 0) {
+	if (marks.length == 0) {
 		return result;
-	} else if (arrayMarks.length > 5) {
-		 let arrayMarksTwo = arrayMarks.slice(0, 5);
-		 for (let i = 0; i < 5; i++) {
-		  result += arrayMarksTwo[i] / 5;
-		}
-	} else (arrayMarks.length < 5) {
-		  for (let i = 0; i < arrayMarks.length; i++) {
-		    result += arrayMarks[i] / arrayMarks.length;
+	} else if (marks.length > 5) {
+		 let marksTwo = marks.slice(0, 5);
+	} else (marks.length <= 5) {
+		  for (let i = 0; i < marks.length; i++) {
+		    result += marks[i] / marks.length;
 		}
 	}
 
@@ -42,8 +37,18 @@ return result;
 }
 
 function askDrink(name,dateOfBirthday){
-	
 
-    // код для задачи №3 писать здесь
-    // return result;
+	let dataNow = new Date();
+	let yearNow = dataNow.getFullYear();	
+	let ageVisitor = dateOfBirthday.getFullYear();
+	let result = yearNow - ageVisitor;
+
+		if (result >= 18) {
+		result = `Не желаете ли олд-фэшн, ${name}?`;
+		} else {
+		 result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Могу предложить вам замечательный клюквенный компот!`;
+		}
+
+return result;
 }
+
