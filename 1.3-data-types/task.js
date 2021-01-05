@@ -1,16 +1,28 @@
 "use strict";
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-    // код для задачи №1 писать здесь
-    // return totalAmount;
+    
+	let totalMonth = date.getMonth() - new Date.getMonth();
+
+	let bodyCredit = amount - contribution;
+
+	let monthPay = bodyCredit * ((percent / 12) + (percent / 12) / (((1 + (percent / 12)) ** totalMonth) - 1)) ;
+
+	let totalSum = Math.floor(monthPay * totalMonth * 100) / 100; // Я специально избегаю toFixed()
+
+    return totalSum;
 }
+
+
+
+
+
+
+
 
 function getGreeting(name) {
     
-    let greeting = `Привет, мир! Меня зовут ${name}.`;
-    if (name == 0) {
-    	greeting = "Привет, мир! Меня зовут Аноним.";
+    if (!name) {
+    	return (`Привет, мир! Меня зовут ${name || "Аноним"}.`);
     }
-    
-    return greeting;
 }
