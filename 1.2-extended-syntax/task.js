@@ -19,19 +19,15 @@ function getAverageMark(marks){
    
     let result = 0;
 
-    for (let i = 0; i < marks.length; i++) {
-    	let sumOne += marks[i];
-    }
 
 	if (marks.length == 0) {
 		result = 0;
 	} else if (marks.length > 5) {
-		 let marksTwo = marks.slice(0, 5);
-		 result = marksTwo.reduce(function(sum, current) {
-		 	return sum + current
-		 }) / 5;
+		 marks = marks.slice(0, 5);
 	} else {
-		  result = sumOne / marks.length;
+		  for (let i = 0; i < marks.length; i++) {
+		  	let result += marks[i] / marks.length;
+		  }
 	}
 	
 
