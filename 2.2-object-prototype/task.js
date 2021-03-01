@@ -23,10 +23,10 @@ function getAverageMark(marks) {
 
 	let average = 0;
 	for (let i=0; i < marks.length; i++) {
-	 average += marks[i] / marks.length;
+	 average += marks[i];
 	}
-	
-	let roundedAverage = Math.round(average);
+	let summary = average / marks.length;
+	let roundedAverage = Math.round(summary);
 
 return roundedAverage;
 }
@@ -36,10 +36,11 @@ return roundedAverage;
 
 function checkBirthday(birthday) {
 	
-	if ((Data.now() - birthday.getMilliseconds()) / /*количество миллисекунд в году */ >= 18) {
-	return (`Не желаете ли олд-фэшн, Аноним?`);
+	let age = (Data.now() - birthday.getMilliseconds()) / 1000 * 60 * 60 * 24 * 365.25;
+	if (age >= 18) {
+		return true;
 	} else {
-	 return (`Сожалею, но я не могу вам продать алкоголь.`);
+		return false;
 	}
 }
 
