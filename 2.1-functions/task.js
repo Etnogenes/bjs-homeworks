@@ -5,29 +5,34 @@ function getSolutions(a, b, c) {
 	let D = b ** 2 - 4 * a * c;
 
 	if (D < 0) {
-		return ({ "D: " + D, "roots: []"});
+		return {"D: ${D}, \nroots: []"};
 	} else if (D == 0) {
 		 let x1 = -b / 2 * a;
-		 return ({ "D: " + D, "root: " + "[" + x1 + "]"});
+		 return {"D: ${D}, \nroot: ${x1}"};
 	} else {
 		  let xOne = (-b + Math.sqrt(D)) / 2 * a;
 		  let xTwo = (-b - Math.sqrt(D)) / 2 * a;
-		  return ({ "D: " + D, "roots: " + "[" + xOne + ", " + xTwo + "]"});
+		  return {"D: ${D}, \nroots: ${xOne}, ${xTwo}"};
 	}
 }
 
 function showSolutionsMessage(a, b, c) {
 
-	let result = getSolutions(a, b, c);
+	let result = getSolutions(a, b, c); //Функциональное выражение
+	result.discriminant = D;
+	result.x1 = x1;
+	result.xOne = xOne;
+	result.xTwo = xTwo;
+
 	console.log("Вычисляем корни квадратного уравнения " + a + "x² + " + b + "x + " + c);
-	console.log("Значение дискриминанта: " + D);
+	console.log("Значение дискриминанта: " + result.discriminant);
 
 	if (D < 0) {
 		return ("Уравнение не имеет вещественных корней");
 	} else if (D == 0) {
-		 return ("Уравнение имеет один корень X₁ = " + x1);
+		 return ("Уравнение имеет один корень X₁ = " + result.x1);
 	} else {
-		  return ("Уравнение имеет два корня. X₁ = " + xOne + ", X₂ = " + xTwo);
+		  return ("Уравнение имеет два корня. X₁ = " + result.xOne + ", X₂ = " + result.xTwo);
 	}
 }
 
