@@ -1,24 +1,24 @@
 "use strict";
+//Задача 1
 
-let text = {
-	string: "palindrome",
-} ;
-
-function isPalindrome(sumbols) {
-	 this.sumbols = sumbols;
+function String (String) {
+	this.String = String;
 }
 
-isPalindrome.prototype = text;
+function isPalindrome(sumbols) {
+	this.sumbols = sumbols;
+}
 
-let palindrome = new isPalindrome("А роза упала на лапу Азора");
-
+let text = new isPalindrome;
 
 
 String.prototype.isPalindrome;
 
+palindrome.hasOwnProperty("palindrome");
 
 
 
+//Задача 2
 function getAverageMark(marks) {
 
 	let average = 0;
@@ -33,10 +33,10 @@ return roundedAverage;
 
 
 
-
+//Задача 3
 function checkBirthday(birthday) {
 	
-	let age = (Data.now() - birthday.getMilliseconds()) / 1000 * 60 * 60 * 24 * 365.25;
+	let age = (Data.now() - birthday.getTime()) / 1000 * 60 * 60 * 24 * 365.25;
 	if (age >= 18) {
 		return true;
 	} else {
