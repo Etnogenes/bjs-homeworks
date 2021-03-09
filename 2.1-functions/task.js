@@ -73,56 +73,30 @@ function getAverageScore(data) {   //данные об оценках по пр�
 
 	};
 
+	for (let property in data) {
+		let value = data[property];
+		console.log("${value}: ${value}");		//иначе можно было бы в свойства записать нечётную длину, а в значения - чётную
+	}
 }
 
 function getAverageMark(marks) {      // вычисляет среднее значение массива
- 
 
-	marks = {
-		firstLesson: "algebra",
-		marksAlgebra: [],          // тут считается средняя оценка
+	let outcome = getAverageScore(data);
+	outcome.data = data;
 
-		secondLesson: "geometry",
-		marksGeometry: [],
-
-		thirdLesson: "russian",
-		marksRussian: [],
-
-		fourthLesson: "physics",
-		marksPhysics: [],
-
-		fifthLesson: "music",
-		marksMusic: [],
-
-		sixthLesson: "english",
-		marksEnglish: [],
-
-		seventhLesson: "poetry",
-		marksPoetry: [],
-
-		eighthLesson: "chemistry",
-		marksChemistry: [],
-
-		ninthLesson: "french",
-		marksFrench: [],
-
-		tenthLesson: "programming",
-		marksProgramming: []
-	};
-
-
-
- for (let i = 0, i < marks.length, i++) {
- 		let average += marks[i] / marks.length;
+	for (let prop in outcome.data) {  //цикл for in так же перебирает свойства в объекте data
+		let val = outcome.data[prop];
+										// не понимаю как рационально посчитать среднее значение для каждого массива с оценками
 	}
 
-if (marks.length == 0) {
-	average = 0;
- }
+	let average = {
+	propertyAverage: "average",
+	valueAverage: []					//усреднённый массив с массивами всех оценок
+	}
+
+	outcome.data.push(average);
+
 }
-
-
-
 
 
 
@@ -136,7 +110,7 @@ if (marks.length == 0) {
 
 
 function getPersonData(secretData) {
-	// body...
+	// expect...
 }
 
 function getDecodedValue(secret) {
