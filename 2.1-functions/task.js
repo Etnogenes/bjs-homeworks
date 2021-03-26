@@ -1,5 +1,5 @@
 "use strict";
-
+//Задача 1
 function getSolutions(a, b, c) {
 	
 	let D = b ** 2 - 4 * a * c;
@@ -26,16 +26,15 @@ function showSolutionsMessage(a, b, c) {
 	if (result.D < 0) {
 		return ("Уравнение не имеет вещественных корней");
 	} else if (result.D == 0) {
-		 return ("Уравнение имеет один корень X₁ = " + result.x1);
+		 return ("Уравнение имеет один корень X₁ = " + result.root);
 	} else {
-		  return ("Уравнение имеет два корня. X₁ = " + result.xOne + ", X₂ = " + result.xTwo);
+		  return ("Уравнение имеет два корня. X₁ = " + result.roots[0] + ", X₂ = " + result.roots[1]);
 	}
 }
 
 
 
-function getAverageScore(data) {   
-	
+//Задача 2
 	data = {
 		algebra: [3, 4, 5, 4, 4],
 		
@@ -59,26 +58,29 @@ function getAverageScore(data) {
 		
 	};
 
+function getAverageScore(data) {   
+
+
 	for (let subject in data) {
-		let array = data[subject];
-		console.log(subject: array);
-
-		
+		let marks = data[subject];
+		console.log(subject + ": " + marks);
 	}
-
-
-
+return {subject: marks};
 }
+
 
 function getAverageMark(marks) {      
 
-let average = 0;
-	for (let i=0; i < marks.length; i++) {
-	 average += marks[i];
-	}
-	let summary = average / marks.length;
+	let result = getAverageScore(data);
 
+	let average = 0;
+		for (let i=0; i < result.marks.length; i++) {
+		 average += result.marks[i];
+		}
 
+	let summary = average / result.marks.length;
+
+return summary = result.marks;
 }
 
 
@@ -91,6 +93,9 @@ let average = 0;
 
 
 
+
+
+//Задача 3
 
 function getPersonData(secretData) {
 	
