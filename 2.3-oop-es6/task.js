@@ -10,30 +10,27 @@ class PrintEditionItem {
 	}
 
 	fix() {
-		this.state = state * 1.5;
+		return this.state * 1.5;
 	}
 
 	set state(newState) {
 		if (newState <= 0) {
-			this.state = 0;
+			this._state = 0;
 		} else if (newState > 100) {
-			this.state = 100;
+			this._state = 100;
 		} else {
-			this.state = newState;
+			this._state = newState;
 		}
 	}
 
 	get state() {
-		return this.state;
+		return this._state;
 	}
 }
 
 class Magazine extends PrintEditionItem{
 	constructor(name, releaseDate, pagesCount, state, type) {
-		this.name = name;
-		this.releaseDate = releaseDate;
-		this.pagesCount = pagesCount;
-		this.state = state;
+		super(name, releaseDate, pagesCount, state);
 		this.type = "magazine";
 	}
 
@@ -41,10 +38,7 @@ class Magazine extends PrintEditionItem{
 
 class Book extends PrintEditionItem {
 	constructor(name, releaseDate, pagesCount, state, type, author) {
-		this.name = name;
-		this.releaseDate = releaseDate;
-		this.pagesCount = pagesCount;
-		this.state = state;
+		super(name, releaseDate, pagesCount, state);
 		this.type = "book";
 		this.author = author;
 	}
@@ -53,10 +47,7 @@ class Book extends PrintEditionItem {
 
 class NovelBook extends PrintEditionItem {
 	constructor(name, releaseDate, pagesCount, state, type) {
-		this.name = name;
-		this.releaseDate = releaseDate;
-		this.pagesCount = pagesCount;
-		this.state = state;
+		super(name, releaseDate, pagesCount, state);
 		this.type = "novel";
 	}
 
@@ -64,10 +55,7 @@ class NovelBook extends PrintEditionItem {
 
 class FantasticBook extends PrintEditionItem {
 	constructor(name, releaseDate, pagesCount, state, type) {
-		this.name = name;
-		this.releaseDate = releaseDate;
-		this.pagesCount = pagesCount;
-		this.state = state;
+		super(name, releaseDate, pagesCount, state);
 		this.type = "fantastic";
 	}
 
@@ -75,20 +63,16 @@ class FantasticBook extends PrintEditionItem {
 
 class DetectiveBook extends PrintEditionItem {
 	constructor(name, releaseDate, pagesCount, state, type) {
-		this.name = name;
-		this.releaseDate = releaseDate;
-		this.pagesCount = pagesCount;
-		this.state = state;
+		super(name, releaseDate, pagesCount, state);
 		this.type = "detective";
 	}
 
 }
 
 
-
 // Задача 2
 class Library {
-	constructor(name, books){
+	constructor(name = String, books = []){
 		this.name = name;
 		this.books = books;
 	}
